@@ -8,7 +8,7 @@ using System.Linq;
 
 class Solution {
     public int[] solution(int[] A, int K) {
-        if (!A.Any() || k == 0)
+        if (!A.Any() || K == 0)
         {
             return A;
             
@@ -20,9 +20,8 @@ class Solution {
         return A;
         
     }
-    public int[] Rotate(int[] intArray)
+    public int[] RotateRight(int[] intArray)
     {
-    
         int first = intArray[intArray.Length - 1];
         for (int i = intArray.Length - 1; i > 0; i--)
         {
@@ -32,4 +31,19 @@ class Solution {
         intArray[0] = first;
         return intArray;   
     }
+
+            public int[] Answer(int[] A, int K)
+        {
+            if (!A.Any() || K == 0)
+            {
+                return A;
+
+            }
+            int[] answer = new int[A.Length];
+            for (int i = 0; i < A.Length; i++)
+            {
+                answer[(K + i) % A.Length] = A[i];
+            }
+            return answer;
+        }
 }
